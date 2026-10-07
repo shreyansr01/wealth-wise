@@ -22,7 +22,7 @@ export default function ShowcaseFooter() {
         <div className="flex items-center gap-1.5 text-stone-500 dark:text-stone-400">
           <span className="text-stone-400 dark:text-stone-500 font-normal">Built by</span>
           <a
-            href="https://shreyandev.vercel.app/"
+            href="https://shreyansr.vercel.app/"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-1 font-medium text-stone-600 hover:text-stone-900 dark:text-stone-300 dark:hover:text-stone-100 transition-colors duration-200"
