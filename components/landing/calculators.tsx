@@ -5,17 +5,13 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import InvestmentCalculatorRefined from "@/components/landing/investment-return-calculator-refined";
-import { ChildEducationCalculatorWithToggleRefined } from "@/components/landing/child-education-planner-refined";
-import ChildMarriageCalculatorRefined from "@/components/landing/child-marriage-planner-refined";
-import IncomePlanningCalculatorRefined from "@/components/landing/retirement-planner-refined";
+import InvestmentCalculator from "@/components/landing/investment-return-calculator";
+import { ChildEducationCalculatorWithToggle } from "@/components/landing/child-education-planner";
+import ChildMarriageCalculator from "@/components/landing/child-marriage-planner";
+import RetirementPlanner from "@/components/landing/retirement-planner";
 import { cn } from "@/lib/utils";
 
-export default function CalculatorsContentRefined() {
-  const clientFirstName = process.env.NEXT_PUBLIC_CLIENT_FIRST_NAME || "Monotosh";
-  const rawPhone = process.env.NEXT_PUBLIC_CLIENT_PHONE || "98364 72260";
-  const cleanPhone = rawPhone.replace(/\s/g, '');
-  const whatsAppNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
+export default function CalculatorsContent() {
 
   const [activeCategory, setActiveCategory] = useState<'all' | 'investment' | 'education' | 'retirement' | 'marriage'>('all');
   const filterScrollRef = useRef<HTMLDivElement>(null);
@@ -190,28 +186,28 @@ export default function CalculatorsContentRefined() {
         {/* Investment Calculator */}
         {(activeCategory === 'all' || activeCategory === 'investment') && (
           <div id="investment-calculator" className="scroll-mt-28">
-            <InvestmentCalculatorRefined />
+            <InvestmentCalculator />
           </div>
         )}
 
         {/* Child Education Calculator */}
         {(activeCategory === 'all' || activeCategory === 'education') && (
           <div id="child-education-calculator" className="scroll-mt-28">
-            <ChildEducationCalculatorWithToggleRefined />
+            <ChildEducationCalculatorWithToggle />
           </div>
         )}
 
         {/* Income Planning Calculator */}
         {(activeCategory === 'all' || activeCategory === 'retirement') && (
           <div id="income-planning-calculator" className="scroll-mt-28">
-            <IncomePlanningCalculatorRefined />
+            <RetirementPlanner />
           </div>
         )}
 
         {/* Marriage Expense Planner */}
         {(activeCategory === 'all' || activeCategory === 'marriage') && (
           <div id="child-marriage-calculator" className="scroll-mt-28">
-            <ChildMarriageCalculatorRefined />
+            <ChildMarriageCalculator />
           </div>
         )}
       </div>

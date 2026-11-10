@@ -23,7 +23,7 @@ interface SipSwpCalculationResults {
   finalYear: number;
 }
 
-export function ChildEducationCalculatorCardRefined({ calculatorType }: { calculatorType: string }) {
+export function ChildEducationCalculatorCard({ calculatorType }: { calculatorType: string }) {
   // SIP states
   const [childName, setChildName] = useState("");
   const [childAge, setChildAge] = useState("");

@@ -9,7 +9,7 @@ import { formatLargeNumber } from "@/lib/format-large-number";
 import { calculateRetirementPlan, RetirementPlanResult } from "@/lib/calculators";
 import { Umbrella, MessageCircle, CheckCircle } from "lucide-react";
 
-export default function IncomePlanningCalculatorRefined() {
+export default function RetirementPlanner() {
   const [name, setName] = useState("");
   const [currentAge, setCurrentAge] = useState("");
   const [retirementAge, setRetirementAge] = useState("");

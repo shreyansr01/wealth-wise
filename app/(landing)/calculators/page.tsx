@@ -1,5 +1,5 @@
-import CalculatorsContentRefined from "@/components/landing/calculators-refined";
+import CalculatorsContent from "@/components/landing/calculators";
 
 export default function Page() {
-  return <CalculatorsContentRefined />;
+  return <CalculatorsContent />;
 }

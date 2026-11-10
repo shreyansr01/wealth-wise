@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { InvestmentCalculatorCardRefined } from "@/components/ui/investment-calculator-card-refined";
+import { InvestmentCalculatorCard } from "@/components/calculators/investment-calculator-card";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { cn } from "@/lib/utils";
 
-export default function InvestmentCalculatorRefined() {
+export default function InvestmentCalculator() {
   const [investmentType, setInvestmentType] = useState("sip");
 
   const handleInvestmentTypeChange = (type: string) => {
@@ -57,7 +57,7 @@ export default function InvestmentCalculatorRefined() {
         </div>
 
         <div>
-          <InvestmentCalculatorCardRefined investmentType={investmentType} key={investmentType} />
+          <InvestmentCalculatorCard investmentType={investmentType} key={investmentType} />
         </div>
       </div>
     </AnimatedSection>

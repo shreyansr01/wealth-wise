@@ -5,27 +5,27 @@ const SHOW_GITHUB = false;
 
 export default function ShowcaseFooter() {
   return (
-    <footer className="w-full mt-auto border-t border-stone-200/70 dark:border-stone-800/70 bg-[#faf9f5]/50 dark:bg-stone-950/40 backdrop-blur-xs py-[1.35rem] pb-24 md:pb-[1.35rem]">
+    <footer className="w-full mt-auto border-t border-stone-200/70 bg-[#faf9f5]/50 backdrop-blur-xs py-[1.35rem] pb-24 md:pb-[1.35rem]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left text-xs sm:text-[13px]">
         {/* Left - Project Identity */}
-        <div className="flex items-center gap-1.5 text-stone-500 dark:text-stone-400">
-          <span className="font-semibold text-stone-800 dark:text-stone-200 tracking-tight">
+        <div className="flex items-center gap-1.5 text-stone-500">
+          <span className="font-semibold text-stone-800 tracking-tight">
             WealthWise
           </span>
-          <span className="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-600 shrink-0" aria-hidden="true" />
-          <span className="text-stone-500 dark:text-stone-400 font-normal">
+          <span className="w-1 h-1 rounded-full bg-stone-300 shrink-0" aria-hidden="true" />
+          <span className="text-stone-500 font-normal">
             Financial Advisory &amp; Services
           </span>
         </div>
 
         {/* Right - Attribution & Links */}
-        <div className="flex items-center gap-1.5 text-stone-500 dark:text-stone-400">
-          <span className="text-stone-400 dark:text-stone-500 font-normal">Built by</span>
+        <div className="flex items-center gap-1.5 text-stone-500">
+          <span className="text-stone-400 font-normal">Built by</span>
           <a
             href="https://shreyansr.vercel.app/"
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-1 font-medium text-stone-600 hover:text-stone-900 dark:text-stone-300 dark:hover:text-stone-100 transition-colors duration-200"
+            className="group inline-flex items-center gap-1 font-medium text-stone-600 hover:text-stone-900 transition-colors duration-200"
           >
             <span>Shreyan Sardar</span>
             <ArrowUpRight
@@ -36,14 +36,14 @@ export default function ShowcaseFooter() {
 
           {SHOW_GITHUB && (
             <>
-              <span className="text-stone-300 dark:text-stone-700 select-none" aria-hidden="true">
+              <span className="text-stone-300 select-none" aria-hidden="true">
                 /
               </span>
               <a
                 href="https://github.com/shreyansr01/wealth-wise"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-1 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 transition-colors duration-200"
+                className="group inline-flex items-center gap-1 text-stone-500 hover:text-stone-900 transition-colors duration-200"
               >
                 <span>GitHub</span>
                 <svg

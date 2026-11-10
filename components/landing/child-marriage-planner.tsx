@@ -9,7 +9,7 @@ import { formatLargeNumber } from "@/lib/format-large-number";
 import { calculateMarriagePlan, MarriagePlanResult } from "@/lib/calculators";
 import { CheckCircle, Heart, MessageCircle } from "lucide-react";
 
-export default function ChildMarriageCalculatorRefined() {
+export default function ChildMarriageCalculator() {
   const [childName, setChildName] = useState("");
   const [currentAge, setCurrentAge] = useState("");
   const [marriageAge, setMarriageAge] = useState("");

@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { BookOpen } from "lucide-react";
-import { ChildEducationCalculatorCardRefined } from "@/components/ui/child-education-calculator-card-refined";
+import { ChildEducationCalculatorCard } from "@/components/calculators/child-education-calculator-card";
 import { cn } from "@/lib/utils";
 
-export function ChildEducationCalculatorToggleRefined({ 
+export function ChildEducationCalculatorToggle({ 
   calculatorType, 
   onCalculatorTypeChange 
 }: { 
@@ -42,25 +42,25 @@ export function ChildEducationCalculatorToggleRefined({
   );
 }
 
-export function ChildEducationCalculatorWithToggleRefined() {
+export function ChildEducationCalculatorWithToggle() {
   const [calculatorType, setCalculatorType] = useState("sip");
 
   return (
     <div className="w-full max-w-3xl mx-auto space-y-3">
       <div className="flex justify-center">
-        <ChildEducationCalculatorToggleRefined 
+        <ChildEducationCalculatorToggle 
           calculatorType={calculatorType} 
           onCalculatorTypeChange={setCalculatorType} 
         />
       </div>
-      <ChildEducationCalculatorRefined 
+      <ChildEducationCalculator 
         calculatorType={calculatorType} 
       />
     </div>
   );
 }
 
-export default function ChildEducationCalculatorRefined({ 
+export default function ChildEducationCalculator({ 
   calculatorType
 }: { 
   calculatorType?: string;
@@ -80,7 +80,7 @@ export default function ChildEducationCalculatorRefined({
       </div>
       <div className="p-4 sm:p-7">
         <div className="w-full">
-          <ChildEducationCalculatorCardRefined calculatorType={effectiveCalculatorType} key={effectiveCalculatorType} />
+          <ChildEducationCalculatorCard calculatorType={effectiveCalculatorType} key={effectiveCalculatorType} />
         </div>
       </div>
     </div>

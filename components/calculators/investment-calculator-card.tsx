@@ -76,7 +76,7 @@ const swpWdPosToVal = (pos: number): number => {
   return Math.round(val / 2500) * 2500;
 };
 
-export function InvestmentCalculatorCardRefined({ investmentType }: { investmentType: string }) {
+export function InvestmentCalculatorCard({ investmentType }: { investmentType: string }) {
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     setIsMounted(true);

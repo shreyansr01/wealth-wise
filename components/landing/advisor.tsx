@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
+import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
 
 interface AdvisorInfo {
   name: string;
@@ -12,12 +13,7 @@ interface AdvisorInfo {
 }
 
 export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
-  const formatWhatsAppNumber = (phone: string) => {
-    const cleanPhone = phone.replace(/\s/g, '');
-    return cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
-  };
-
-  const whatsAppNumber = formatWhatsAppNumber(advisor.phone);
+  const whatsAppUrl = getWhatsAppUrl(undefined, advisor.phone);
 
   return (
     <section className="max-w-[740px] mx-auto px-4 sm:px-6">
@@ -61,7 +57,7 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
             {/* Symmetrical Contact Channels (Clean, quiet, single-line on desktop, full-width on mobile) */}
             <div className="flex flex-col sm:flex-row sm:flex-nowrap items-stretch sm:items-center justify-center md:justify-start gap-1.5 sm:gap-2 mt-3.5 sm:mt-4 w-full">
               <a 
-                href={`https://wa.me/${whatsAppNumber}`}
+                href={whatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center sm:justify-start gap-1.5 px-3 py-2 sm:py-1.5 rounded-xl bg-stone-50/80 hover:bg-emerald-50/90 hover:border-emerald-300 hover:shadow-xs active:bg-emerald-100/70 active:scale-[0.99] text-stone-700 hover:text-emerald-950 border border-stone-200/60 transition-all duration-200 text-[11px] sm:text-xs font-medium w-full sm:w-auto shrink-0 whitespace-nowrap"
@@ -97,11 +93,11 @@ export function AdvisorSection({ advisor }: { advisor: AdvisorInfo }) {
 
 export default function Advisor() {
   const advisorData: AdvisorInfo = {
-    name: process.env.NEXT_PUBLIC_CLIENT_NAME || "Monotosh Sardar",
+    name: siteConfig.name,
     profession: "NISM & IRDA Certified",
-    phone: process.env.NEXT_PUBLIC_CLIENT_PHONE || "98364 72260",
-    email: process.env.NEXT_PUBLIC_CLIENT_EMAIL || "moni22rick@gmail.com",
-    address: process.env.NEXT_PUBLIC_CLIENT_ADDRESS || "Budge Budge, Kolkata, West Bengal, India"
+    phone: siteConfig.phone,
+    email: siteConfig.email,
+    address: siteConfig.address,
   };
 
   return <AdvisorSection advisor={advisorData} />;

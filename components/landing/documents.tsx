@@ -22,6 +22,7 @@ import { SimplePageHeader } from "@/components/ui/simple-page-header";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
+import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
 
 interface CostItem {
   label: string;
@@ -41,10 +42,7 @@ interface DocumentService {
 }
 
 export default function DocumentsContent() {
-  const clientFirstName = process.env.NEXT_PUBLIC_CLIENT_FIRST_NAME || "Monotosh";
-  const rawPhone = process.env.NEXT_PUBLIC_CLIENT_PHONE || "98364 72260";
-  const cleanPhone = rawPhone.replace(/\s/g, '');
-  const whatsAppNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
+  const { firstName: clientFirstName } = siteConfig;
 
   const [activeCategory, setActiveCategory] = useState<'all' | 'personal' | 'vehicle' | 'business'>('all');
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
@@ -677,7 +675,7 @@ export default function DocumentsContent() {
 
                   {/* Desktop Direct WhatsApp CTA */}
                   <a
-                    href={`https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(service.whatsAppMsg)}`}
+                    href={getWhatsAppUrl(service.whatsAppMsg)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-medium text-xs shadow-2xs hover:shadow-xs transition-all flex-shrink-0"
@@ -830,7 +828,7 @@ export default function DocumentsContent() {
                 {/* Mobile WhatsApp Action */}
                 <div className="mt-4 sm:hidden">
                   <a
-                    href={`https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(service.whatsAppMsg)}`}
+                    href={getWhatsAppUrl(service.whatsAppMsg)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 h-10 px-5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white rounded-full font-medium text-xs shadow-2xs transition-all"

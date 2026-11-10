@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
 
 export default function Header() {
   const pathname = usePathname();
@@ -21,11 +22,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Monotosh Sardar";
-  const rawPhone = process.env.NEXT_PUBLIC_CLIENT_PHONE || "98364 72260";
-  const cleanPhone = rawPhone.replace(/\s/g, '');
-  const whatsAppNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
-  const logoSrc = process.env.NEXT_PUBLIC_CLIENT_LOGO || "/monotosh_logo_1.1.png";
+  const { name: clientName, logo: logoSrc } = siteConfig;
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -83,7 +80,7 @@ export default function Header() {
           {/* Right - Subtle Direct Contact Link */}
           <div className="flex items-center gap-2">
             <a
-              href={`https://wa.me/${whatsAppNumber}`}
+              href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Connect on WhatsApp"

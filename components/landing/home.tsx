@@ -17,13 +17,10 @@ import { TestimonialCard } from "@/components/ui/testimonial-card";
 import { Button } from "@/components/ui/button";
 import Advisor from "@/components/landing/advisor";
 import Partners from "@/components/landing/partners";
+import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
 
 export default function HomeContent() {
-  const clientName = process.env.NEXT_PUBLIC_CLIENT_NAME || "Monotosh Sardar";
-  const clientFirstName = process.env.NEXT_PUBLIC_CLIENT_FIRST_NAME || "Monotosh";
-  const rawPhone = process.env.NEXT_PUBLIC_CLIENT_PHONE || "98364 72260";
-  const cleanPhone = rawPhone.replace(/\s/g, '');
-  const whatsAppNumber = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
+  const { name: clientName, firstName: clientFirstName } = siteConfig;
 
   const scrollToServices = () => {
     const el = document.getElementById('core-services-section');
@@ -98,7 +95,7 @@ export default function HomeContent() {
         {/* Primary Call to Actions */}
         <div className="flex flex-col sm:flex-row gap-3 items-center justify-center mt-5 sm:mt-7 w-full max-w-xs sm:max-w-none mx-auto">
           <a
-            href={`https://wa.me/${whatsAppNumber}?text=Hi%20${encodeURIComponent(clientFirstName)}%2C%20I'd%20like%20to%20schedule%20a%20free%20consultation%20to%20discuss%20my%20financial%20goals.`}
+            href={getWhatsAppUrl(`Hi ${clientFirstName}, I'd like to schedule a free consultation to discuss my financial goals.`)}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-block"

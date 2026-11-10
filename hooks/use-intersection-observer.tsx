@@ -1,29 +1,31 @@
 import { useState, useEffect, useRef } from "react";
 
-export function useIntersectionObserver(options = {}): [React.MutableRefObject<HTMLDivElement | null>, boolean] {
+export function useIntersectionObserver(
+  options: IntersectionObserverInit = {}
+): [React.MutableRefObject<HTMLDivElement | null>, boolean] {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const { threshold = 0.01, rootMargin = "120px 0px", root = null } = options;
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element || hasAnimated) return;
 
-    // Use a single observer instance with optimized settings
     observerRef.current = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
+        if (entry.isIntersecting) {
           setIsIntersecting(true);
           setHasAnimated(true);
-          // Disconnect observer after animation to improve performance
           observerRef.current?.disconnect();
         }
       },
       {
-        threshold: 0.01, // Even lower threshold for faster triggering
-        rootMargin: "120px 0px", // Increased root margin for earlier triggering
-        ...options,
+        threshold,
+        rootMargin,
+        root,
       }
     );
 
@@ -32,7 +34,7 @@ export function useIntersectionObserver(options = {}): [React.MutableRefObject<H
     return () => {
       observerRef.current?.disconnect();
     };
-  }, [hasAnimated, options]);
+  }, [hasAnimated, threshold, rootMargin, root]);
 
   return [ref, isIntersecting];
 }

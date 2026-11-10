@@ -19,7 +19,7 @@ export default function Footer() {
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-[310px] z-50 md:hidden">
       {/* Warm Frosted Glass Floating Dock */}
       <div 
-        className="bg-white/90 dark:bg-stone-900/90 backdrop-blur-xl border border-stone-200/70 dark:border-stone-800/70 shadow-[0_10px_30px_-6px_rgba(28,25,23,0.07),0_4px_12px_-4px_rgba(28,25,23,0.04)] rounded-2xl py-1 px-1 flex justify-around items-center" 
+        className="bg-white/90 backdrop-blur-xl border border-stone-200/70 shadow-[0_10px_30px_-6px_rgba(28,25,23,0.07),0_4px_12px_-4px_rgba(28,25,23,0.04)] rounded-2xl py-1 px-1 flex justify-around items-center" 
         role="tablist" 
         aria-label="Primary navigation"
       >
@@ -41,16 +41,16 @@ export default function Footer() {
                 className={`
                   p-1.5 rounded-xl transition-all duration-200 flex items-center justify-center mb-0.5
                   ${isActive 
-                    ? "bg-emerald-900/[0.08] dark:bg-emerald-400/[0.12]" 
-                    : "bg-transparent group-hover:bg-stone-100/60 dark:group-hover:bg-stone-800/50"}
+                    ? "bg-emerald-900/[0.08]" 
+                    : "bg-transparent group-hover:bg-stone-100/60"}
                 `}
               >
                 <Icon 
                   className={`
                     w-[18px] h-[18px] sm:w-[19px] sm:h-[19px] transition-all duration-200
                     ${isActive 
-                      ? "text-emerald-800 dark:text-emerald-300 scale-105" 
-                      : "text-stone-400 dark:text-stone-500 group-hover:text-stone-700 dark:group-hover:text-stone-300"}
+                      ? "text-emerald-800 scale-105" 
+                      : "text-stone-400 group-hover:text-stone-700"}
                   `} 
                   aria-hidden="true" 
                 />
@@ -61,8 +61,8 @@ export default function Footer() {
                 className={`
                   text-[10px] sm:text-[10.5px] tracking-tight transition-all duration-200 font-medium
                   ${isActive 
-                    ? "text-emerald-900 dark:text-emerald-200 font-semibold" 
-                    : "text-stone-400 dark:text-stone-500 group-hover:text-stone-700 dark:group-hover:text-stone-300"}
+                    ? "text-emerald-900 font-semibold" 
+                    : "text-stone-400 group-hover:text-stone-700"}
                 `}
               >
                 {tab.label}
